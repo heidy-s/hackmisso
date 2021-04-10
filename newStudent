@@ -1,0 +1,145 @@
+import javax.swing.*;
+public class newStudent
+{
+
+    public static void main(String[] args)throws Exception
+    {
+
+
+
+        String inputUsername = " ";
+        String inputPassword = " ";
+        int hasAnAccount = 1;
+        studentData[] studentAccount = new studentData[1];   ///// I set this to one to begin with
+        String [] usernameArray = new String[1];
+        String [] passwordArray = new String[1];
+        int wantToCreateAccount = 1;
+        int x;
+ ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        hasAnAccount = JOptionPane.showConfirmDialog(null,"do you have an account?");
+        if(hasAnAccount == 0)
+  {
+        inputUsername = JOptionPane.showInputDialog(null,"Enter the username");
+        inputPassword = JOptionPane.showInputDialog(null,"Enter the password");
+        for(x = 0; x < usernameArray.length; ++x)
+        {
+  if(usernameArray[x].equals(inputUsername)&& passwordArray[x].equals(inputPassword))
+  {
+  studentAccount[x].showInfo(x);
+
+  }
+  }
+    }
+    else
+    {
+  inputUsername = " ";
+      inputPassword = " ";
+      wantToCreateAccount = 1;
+      wantToCreateAccount = JOptionPane.showConfirmDialog(null,"Do you want to create an account");
+      if(wantToCreateAccount == 0)
+      {
+   inputUsername = JOptionPane.showInputDialog(null,"Enter the username");
+       inputPassword = JOptionPane.showInputDialog(null,"Enter the password");
+       studentAccount[0] = new studentData(inputUsername, inputPassword);
+       usernameArray[0] = (inputUsername);
+       passwordArray[0] = (inputPassword);
+
+  }
+      }
+
+
+
+
+
+
+
+
+        ///////////////////////////  Create the very first object outside of the loop
+
+       /* studentAccount[0] = new studentData(inputUsername, inputPassword);
+        usernameArray[0] = (inputUsername);
+        passwordArray[0] = (inputPassword);
+        */
+
+
+
+
+
+int keepGoing = JOptionPane.showConfirmDialog(null, "Would you like to run through the loop again");
+studentData temp;
+while (keepGoing == 0)
+{
+hasAnAccount = JOptionPane.showConfirmDialog(null,"do you have an account?");
+if(hasAnAccount == 0)
+{
+    inputUsername = JOptionPane.showInputDialog(null,"Enter the username");
+    inputPassword = JOptionPane.showInputDialog(null,"Enter the password");
+    for(x = 0; x < usernameArray.length; ++x)
+      {
+  if(usernameArray[x].equals(inputUsername)&& passwordArray[x].equals(inputPassword))
+  {
+  studentAccount[x].showInfo(x);
+
+  }
+   }
+    }
+    else
+  {
+  inputUsername = " ";
+      inputPassword = " ";
+      wantToCreateAccount = 1;
+      wantToCreateAccount = JOptionPane.showConfirmDialog(null,"Do you want to create an account");
+
+         if(wantToCreateAccount == 0)
+        {
+
+inputUsername = JOptionPane.showInputDialog(null,"Enter the username");
+            inputPassword = JOptionPane.showInputDialog(null,"Enter the password");
+//incrementing student username and passwords
+temp = new studentData(inputUsername, inputPassword);
+//Need for String
+
+studentAccount = addElement(studentAccount, temp);
+usernameArray =  addString(usernameArray, inputUsername);//need to make the method addstring
+passwordArray =  addString(passwordArray, inputPassword);
+
+        }
+}
+keepGoing = JOptionPane.showConfirmDialog(null, "do you want to go through the loop again?");
+}
+
+
+System.out.println(studentAccount.length);
+
+
+}
+        public static studentData[] addElement(studentData myArray[], studentData someObject)
+            {
+                int n  = myArray.length + 1;
+                studentData newArray[] = new studentData[n];
+                //copy original array into new array
+                for (int i = 0; i < myArray.length; i++)
+                      newArray[i] = myArray[i];
+
+                //add element to the new array
+                newArray[myArray.length] = someObject;
+
+                return newArray;
+             }
+
+              public static String[] addString(String myArray[], String someObject)
+            {
+                int n  = myArray.length + 1;
+                String newArray[] = new String[n];
+                //copy original array into new array
+                for (int i = 0; i < myArray.length; i++)
+                      newArray[i] = myArray[i];
+
+                //add element to the new array
+                newArray[myArray.length] = someObject;
+
+                return newArray;
+             }
+//Thanks to Arkin who helped out a ton//
+
+}
