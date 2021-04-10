@@ -1,0 +1,35 @@
+import javax.swing.*;
+import java.awt.GridLayout;
+import java.lang.StackWalker.Option;
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+
+public class studentInterface
+{
+    public static void main(String[] args)
+    {
+    //do u have an account button yes or no
+
+    JFrame frame = new JFrame("Coog Login");;
+            JPanel pane;
+            JTextField userid, passwd;
+            pane = new JPanel();
+            pane.setLayout(new GridLayout(0,1,1,1));
+            userid = new JTextField(6);
+            passwd = new JTextField();
+            pane.add(new JLabel("Enter your UH id number: "));
+            pane.add(userid);
+            pane.add(new JLabel("Enter password: "));
+            pane.add(passwd);
+            JOptionPane.showConfirmDialog(frame, pane,"Log in",JOptionPane.DEFAULT_OPTION);
+            //check if student exists, if does display their data
+            String id_input = userid.getText();
+            String passwd_input = passwd.getText();
+    }
+
+}
