@@ -1,0 +1,42 @@
+import javax.swing.*;
+public class studentData
+
+{
+private String studentsIds;
+private String passwords;
+private double GPA;
+private String majors;
+private String minors;
+private String latinHonors = " ";
+private String [] completedCourseWork;
+private int hoursRemaning;
+private int accountNumber = 0;
+private static int lastAccountNumeber;
+private boolean hasAnAccount =  false;
+
+public void showInfo(int accountNumber)
+{
+this.accountNumber = accountNumber;
+{
+JOptionPane.showMessageDialog(null,"Here are your student information Student" + this.accountNumber + "\nGPA: " + GPA + "\nmajors: " + majors + "\nminors: " + minors + "\nlatinHonors:" + latinHonors );
+
+}
+
+}
+public studentData(String studentIds,String passwords)
+{
+this.studentsIds = studentsIds;
+this.passwords = passwords;
+GPA = Double.parseDouble(JOptionPane.showInputDialog(null,"Enter your GPA"));
+majors = JOptionPane.showInputDialog(null,"Enter your major");
+minors = JOptionPane.showInputDialog(null,"Enter your minor");
+if(GPA > 3.0)
+latinHonors = "cum laude";
+if(GPA > 3.4)
+latinHonors = "magna cum laude";
+if(GPA > 3.7)
+latinHonors = "summa cum laude";
+
+
+}
+
